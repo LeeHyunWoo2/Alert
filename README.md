@@ -36,12 +36,12 @@
 1.&nbsp;**Npcap** (필수)
 
 &nbsp; 이 파일이 있어야 패킷 캡처가 작동합니다.  
-&nbsp; [Npcap 다운로드 링크](https://npcap.com) 에서 설치해주세요.
+&nbsp; [Npcap 다운로드 링크](https://npcap.com){:target="_blank"} 에서 설치해주세요.
 
 &nbsp;2. **JRE** (Java Runtime Environment)
 
 &nbsp; exe파일이 JRE를 포함하고 있을 수도 있으나 만약 JRE가 필요할 경우,  
-&nbsp; [Java 다운로드 링크](https://www.java.com/ko/download/)에서 설치를 해야 합니다.
+&nbsp; [Java 다운로드 링크](https://www.java.com/ko/download/){:target="_blank"}에서 설치를 해야 합니다.
 ### 시행착오 및 배운점
 
 네트워크 트래픽이 예상보다 너무 촘촘하고 빠른 간격으로 수신되었고, 그 때문에 GIF 애니메이션이 멈추는 상황을 굉장히 오랫동안 해결하지 못했습니다.   
