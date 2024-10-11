@@ -41,7 +41,7 @@
 &nbsp;2. **JRE** (Java Runtime Environment)
 
 &nbsp; exe파일이 JRE를 포함하고 있을 수도 있으나 만약 JRE가 필요할 경우,  
-&nbsp; [Java 다운로드 링크](https://www.java.com/ko/download/)에서 설치를 해야 합니다.
+&nbsp; [Java 다운로드 링크](https://www.java.com/ko/download/)에서 설치를 해야 합니다.  
 
 ### 시행착오 및 배운점
 
