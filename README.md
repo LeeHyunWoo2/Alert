@@ -6,7 +6,7 @@
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![asdf](https://github.com/user-attachments/assets/654ec9fe-5a20-4d43-af0b-e484bcd1ac46)
 
 
 ## 주요 기능
