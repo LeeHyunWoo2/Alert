@@ -22,8 +22,8 @@ public class PacketCapture {
 
   private static PcapHandle currentPcap = null;
   private static JTextArea textBox;
-  private ScheduledExecutorService scheduler; // 스케줄러 인스턴스를 필드로 선언
-  private ExecutorService executorService; // 스레드 풀도 마찬가지로 필요시 새로 생성하게끔 셋팅
+  private ScheduledExecutorService scheduler;
+  private ExecutorService executorService;
   private static final Popup popup = new Popup();
 
   private int threshold;
@@ -158,12 +158,16 @@ public class PacketCapture {
     }
     ConcurrentLinkedQueue<Packet> bufferToProcess;
 
-    usingFirstBuffer.set(!usingFirstBuffer.get()); // 현재 사용중인 버퍼 전환
-    bufferToProcess = usingFirstBuffer.get() ? secondBuffer : firstBuffer; // 이전 버퍼 선택
+    // 현재 사용 중인 버퍼를 반대 버퍼로 전환 (물레방아처럼 두 개의 버퍼를 번갈아 사용)
+    usingFirstBuffer.set(!usingFirstBuffer.get());
+
+    // 현재 사용하지 않는 버퍼를 처리할 대상으로 선택
+    bufferToProcess = usingFirstBuffer.get() ? secondBuffer : firstBuffer;
 
     int totalUploadTraffic = 0;
     int totalDownloadTraffic = 0;
 
+    // 이전 버퍼를 비워가며 패킷을 처리
     for (Packet packet : bufferToProcess) {
       int[] traffic = processPacket(packet); // 패킷 처리 후, 결과 트래픽 반환
       totalUploadTraffic += traffic[0]; // 업로드 트래픽 누적
@@ -186,6 +190,10 @@ public class PacketCapture {
       TcpPacket tcpPacket = packet.get(TcpPacket.class);
       IpV4Packet ipV4Packet = packet.get(IpV4Packet.class);
       IpV6Packet ipV6Packet = packet.get(IpV6Packet.class);
+
+
+      // TCP 패킷의 출발지와 목적지 포트를 확인하여 업로드와 다운로드 트래픽을 구분합니다.
+      // 예를 들어 srcPort가 설정된 포트 번호와 일치하면 업로드, dstPort가 일치하면 다운로드로 분류됩니다.
 
       if (tcpPacket != null && (ipV4Packet != null || ipV6Packet != null)) {
         int srcPort = tcpPacket.getHeader().getSrcPort().valueAsInt();
@@ -253,7 +261,7 @@ public class PacketCapture {
         closePopup();  // 팝업을 닫기
       }
     } else {
-      // 트래픽이 임계값을 초과하면 팝업을 유지하고, 마지막 팝업 닫힌 시간 갱신
+      // 트래픽이 임계값을 초과하면 팝업을 유지하고, 마지막 팝업 닫힌 시간 갱신 (열린상태 유지)
       showPopup();  // 팝업을 열기
       lastPopupCloseTime = currentTime;
     }
