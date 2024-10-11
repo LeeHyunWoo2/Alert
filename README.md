@@ -38,7 +38,7 @@
 &nbsp; 이 파일이 있어야 패킷 캡처가 작동합니다.  
 &nbsp; [Npcap 다운로드 링크](https://npcap.com)에서 설치해주세요.
 
-&nbsp;2. **JRE** (Java Runtime Environment)
+&nbsp;2. **Java Runtime Environment** (필요 시)
 
 &nbsp; exe파일이 JRE를 포함하고 있을 수도 있으나 만약 JRE가 필요할 경우,  
 &nbsp; [Java 다운로드 링크](https://www.java.com/ko/download/)에서 설치를 해야 합니다.  
