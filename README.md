@@ -53,6 +53,8 @@
 
 ![Honeycam 2024-09-01 10-46-01](https://github.com/user-attachments/assets/65b344fd-e219-4342-8951-db203c7c5327)
 
+(클릭 시 재생)
+
 이런 경우도 있었고 허리를 숙인채로 굳기도 하고.....
 
 - 스케줄러 줄이기
